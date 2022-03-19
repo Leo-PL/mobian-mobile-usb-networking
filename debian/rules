@@ -1,0 +1,8 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_installsystemd:
+	dh_installsystemd --name=mobile-usb-gadget --no-stop-on-upgrade --no-restart-after-upgrade
+	dh_installsystemd --name=mobile-usb-network-setup --no-enable --no-start

@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "remove" ]; then
+    # Remove USB gadget network connection
+    nmcli connection delete USB
+
+    # Disable automatic start of USB gadget
+    deb-systemd-helper disable mobile-usb-gadget
+fi
+
+#DEBHELPER#

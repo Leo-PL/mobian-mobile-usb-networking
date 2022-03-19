@@ -1,0 +1,21 @@
+Source: mobile-usb-networking
+Section: network
+Priority: optional
+Maintainer: Arnaud Ferraris <arnaud.ferraris@gmail.com>
+Standards-Version: 4.6.0
+Build-Depends: debhelper-compat (= 13),
+               dh-systemd,
+Homepage: https://gitlab.com/mobian1/mobile-usb-networking
+Vcs-Git: https://gitlab.com/mobian1/mobile-usb-networking.git
+Vcs-Browser: https://gitlab.com/mobian1/mobile-usb-networking
+Rules-Requires-Root: no
+
+Package: mobile-usb-networking
+Architecture: all
+Depends: network-manager,
+         ${misc:Depends}
+Replaces: mobian-tweaks-common (<< 0.5.2~)
+Breaks: mobian-tweaks-common (<< 0.5.2~)
+Description: Default USB networking configuration for mobile devices
+ This package provides configuration files and scripts for setting up
+ networking using USB gadget on mobile devices.
