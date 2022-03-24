@@ -4,7 +4,6 @@ Priority: optional
 Maintainer: Arnaud Ferraris <arnaud.ferraris@gmail.com>
 Standards-Version: 4.6.0
 Build-Depends: debhelper-compat (= 13),
-               dh-systemd,
 Homepage: https://gitlab.com/mobian1/mobile-usb-networking
 Vcs-Git: https://gitlab.com/mobian1/mobile-usb-networking.git
 Vcs-Browser: https://gitlab.com/mobian1/mobile-usb-networking
