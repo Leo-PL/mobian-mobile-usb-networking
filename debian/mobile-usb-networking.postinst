@@ -6,7 +6,7 @@ if [ "$1" = "configure" ]; then
     # connection file isn't created), then we're probably creating an image and
     # need a systemd service running on first boot to setup USB networking
     if ! /usr/sbin/mobile-usb-network-setup; then
-        deb-systemd-helper enable mobile-usb-network-setup
+        deb-systemd-helper enable mobile-usb-network-setup.service
     fi
 fi
 
