@@ -5,8 +5,7 @@ if [ "$1" = "configure" ]; then
     # Try setting up USB networking directly; if it doesn't work (i.e. the NM
     # connection file isn't created), then we're probably creating an image and
     # need a systemd service running on first boot to setup USB networking
-    /usr/sbin/mobile-usb-network-setup
-    if [ ! -e /etc/NetworkManager/system-connections/USB.nmconnection ]; then
+    if ! /usr/sbin/mobile-usb-network-setup; then
         deb-systemd-helper enable mobile-usb-network-setup
     fi
 fi
