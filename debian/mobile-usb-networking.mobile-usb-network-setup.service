@@ -2,7 +2,7 @@
 Description=Setup USB networking
 Requires=NetworkManager.service
 After=NetworkManager.service
-ConditionFirstBoot=yes
+ConditionPathExists=!/etc/NetworkManager/system-connections/USB.nmconnection
 
 [Service]
 Type=oneshot
