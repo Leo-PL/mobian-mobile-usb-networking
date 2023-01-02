@@ -1,3 +1,14 @@
+mobile-usb-networking (0.0.4) unstable; urgency=medium
+
+  * mobile-usb-network-setup.service: fix startup condition
+    `ConditionFirstBoot` is true when `/etc/machine-id` doesn't exist.
+    However, we ship images with an existing, but empty file instead,
+    meaning the service won't start in such cases.
+    Let's change the condition to make the service run when the NM
+    connection file is missing.
+
+ -- Arnaud Ferraris <aferraris@debian.org>  Mon, 02 Jan 2023 11:13:17 +0100
+
 mobile-usb-networking (0.0.3) unstable; urgency=medium
 
   * d/postinst: fix `deb-systemd-helper` call
