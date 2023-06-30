@@ -3,15 +3,21 @@ set -e
 
 if [ ! -e /etc/NetworkManager/system-connections/USB.nmconnection ]; then
     # Create network connection
-    nmcli connection add con-name USB \
+    nmcli connection add con-name RNDIS \
                          ifname usb0 \
                          type ethernet \
                          ip4 10.66.0.1/24
 
+    nmcli connection add con-name ECM \
+                         ifname usb1 \
+                         type ethernet \
+                         ip4 10.66.0.1/24
+
     # Set priorities so it doesn't take precedence over WiFi/mobile connections
-    nmcli connection modify USB ipv4.route-metric 1500
-    nmcli connection modify USB ipv4.dns-priority 150
+    nmcli connection modify RNDIS ipv4.route-metric 1500 ipv4.dns-priority 150
+    nmcli connection modify ECM ipv4.route-metric 1500 ipv4.dns-priority 150
 
     # Share connection so it can be used for tethering
-    nmcli connection modify USB ipv4.method shared
+    nmcli connection modify RNDIS ipv4.method shared
+    nmcli connection modify ECM ipv4.method shared
 fi

@@ -3,7 +3,8 @@ set -e
 
 if [ "$1" = "remove" ]; then
     # Remove USB gadget network connection
-    nmcli connection delete USB
+    nmcli connection delete RNDIS
+    nmcli connection delete ECM
 
     # Disable automatic start of USB gadget
     deb-systemd-helper disable mobile-usb-gadget
